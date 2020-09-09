@@ -22,7 +22,7 @@ function Home() {
           <Product
             id="12321"
             title="Apple Watch Series 3 (GPS, 42mm) - Space Grey Aluminium Case with Black Sport Band"
-            price={20}
+            price={15.99}
             rating={5}
             image="https://images-eu.ssl-images-amazon.com/images/I/41RLXO5JUhL._AC_SX368_.jpg"
           />
