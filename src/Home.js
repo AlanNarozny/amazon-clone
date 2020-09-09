@@ -12,17 +12,24 @@ function Home() {
           alt=""
         />
         <div className="home__row">
+          <Product
+            title="The lean star"
+            price={29.99}
+            image="https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg"
+            rating={5}
+          />
           <Product />
-          {/*Pruduct*/}
         </div>
 
         <div className="home__row">
-          {/*Pruduct*/}
-          {/*Pruduct*/}
-          {/*Pruduct*/}
+          <Product />
+          <Product />
+          <Product />
         </div>
 
-        <div className="home__row">{/*Pruduct*/}</div>
+        <div className="home__row">
+          <Product />
+        </div>
       </div>
     </div>
   );
