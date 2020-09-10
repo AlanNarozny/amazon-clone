@@ -15,14 +15,14 @@ function Home() {
           <Product
             id="12320"
             title="The Lean Startup"
-            price={10}
+            price={1000.25}
             rating={5}
             image="https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg"
           />
           <Product
             id="12321"
             title="Apple Watch Series 3 (GPS, 42mm) - Space Grey Aluminium Case with Black Sport Band"
-            price={15.99}
+            price={15.999}
             rating={5}
             image="https://images-eu.ssl-images-amazon.com/images/I/41RLXO5JUhL._AC_SX368_.jpg"
           />
@@ -32,7 +32,7 @@ function Home() {
           <Product
             id="12322"
             title="Apple Watch Series 3 (GPS, 42mm) - Space Grey Aluminium Case with Black Sport Band"
-            price={20}
+            price={20.98}
             rating={1}
             image="https://images-na.ssl-images-amazon.com/images/I/81O%2BGNdkzKL._AC_SX450_.jpg"
           />
@@ -46,7 +46,7 @@ function Home() {
           <Product
             id="12324"
             title="Apple Watch Series 3 (GPS, 42mm) - Space Grey Aluminium Case with Black Sport Band"
-            price={20}
+            price={2098.0}
             rating={5}
             image="https://images-na.ssl-images-amazon.com/images/I/816ctt5WV5L.AC_SX385_.jpg"
           />
@@ -56,7 +56,7 @@ function Home() {
           <Product
             id="12325"
             title="Apple Watch Series 3 (GPS, 42mm) - Space Grey Aluminium Case with Black Sport Band"
-            price={20}
+            price={987.65}
             rating={5}
             image="https://images-na.ssl-images-amazon.com/images/I/6125mFrzr6L._AC_SX355_.jpg"
           />
