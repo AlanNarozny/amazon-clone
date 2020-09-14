@@ -1,8 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { auth } from "./firebase";
+import userEvent from "@testing-library/user-event";
 
 function Login() {
+  const history = useHistory();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const signIn = (e) => {
+    e.preventDefault();
+
+    //some fancy firebase login happens here
+  };
+
+  const register = (e) => {
+    e.preventDefault();
+
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((auth) => {
+        console.log(auth);
+        if (auth) {
+          history.push("/");
+        }
+      })
+      .catch((error) => alert(error.message));
+    //some fancy firebase register happens here
+  };
+
   return (
     <div className="login">
       <Link to="/">
@@ -17,10 +44,20 @@ function Login() {
 
         <form>
           <h5>E-mail</h5>
-          <input type="text" />
+          <input
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
           <h5>password</h5>
-          <input type="password" />
-          <button className="login__signInButton">Sign IN</button>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button type="submit" onClick={signIn} lassName="login__signInButton">
+            Sign IN
+          </button>
         </form>
 
         <p>
@@ -29,7 +66,7 @@ function Login() {
           Interest-Based Ads Notice.
         </p>
 
-        <button className="login__registerButton">
+        <button onClick={register} className="login__registerButton">
           Create an AMAZON ACCOUNT
         </button>
       </div>
