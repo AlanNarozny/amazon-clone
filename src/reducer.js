@@ -1,5 +1,8 @@
+import userEvent from "@testing-library/user-event";
+
 export const initialState = {
   basket: [],
+  use: null,
 };
 
 //Selector
@@ -31,6 +34,12 @@ const reducer = (state, action) => {
       return {
         ...state,
         basket: newBasket,
+      };
+
+    case "SET_USER":
+      return {
+        ...state,
+        user: action.user,
       };
 
     default:
