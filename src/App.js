@@ -9,12 +9,14 @@ import Login from "./Login";
 import Payment from "./Payment";
 import { auth } from "./firebase";
 import { useStateValue } from "./StateProvider";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 
 function App() {
   const [{}, dispatch] = useStateValue();
 
   useEffect(() => {
-    //will onlu run ONCE when the app component loads
+    //will only run ONCE when the app component loads
 
     auth.onAuthStateChanged((authUser) => {
       console.log("THE USER IS >>>", authUser);
