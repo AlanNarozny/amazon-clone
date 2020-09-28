@@ -5,6 +5,10 @@
   margin: auto auto;
 }
 
+.home__row > product {
+  font-weight: 900;
+}
+
 .home__row {
   display: flex;
   z-index: 1;

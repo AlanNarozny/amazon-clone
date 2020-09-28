@@ -26,6 +26,16 @@
 .product__info {
   height: 100px;
   margin-bottom: 15px;
+  text-align: left;
+  text-decoration: dashed;
+  text-transform: capitalize;
+  transition-property: text-decoration, text-transform;
+  transition-duration: 3s;
+}
+
+.product__info:hover {
+  text-decoration: wavy;
+  text-transform: uppercase;
 }
 
 .product__price {
