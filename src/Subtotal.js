@@ -18,18 +18,18 @@ function Subtotal() {
         renderText={(value) => (
           <>
             <p>
-              Subtotal ({basket.length} iteeems) : <strong>{`${value}`}</strong>
+              Subtotal ({basket.length} items) : <strong>{value}</strong>
             </p>
             <small className="subtotal__gift">
               <input type="checkbox" /> This order contains a gift
             </small>
           </>
         )}
-        decimalScale={4}
+        decimalScale={2}
         value={getBasketTotal(basket)}
         displayType={"text"}
         thousandSeparator={true}
-        prefix={"₹"}
+        prefix={"$"}
       />
 
       <button onClick={(e) => history.push("/payment")}>
