@@ -6,8 +6,10 @@ import { useStateValue } from "./StateProvider";
 function Product({ id, title, image, price, rating }) {
   const [{ basket }, dispatch] = useStateValue();
 
+  /*==================================================
+  Dispatches action to add item from basket*/
+  //dispatch the item into the data layer
   const addToBasket = () => {
-    //dispatch the item into the data layer
     dispatch({
       type: "ADD_TO_BASKET",
       item: {
@@ -25,8 +27,8 @@ function Product({ id, title, image, price, rating }) {
       <div className="product__info">
         <p>{title}</p>
         <p className="product__price">
-          <strong>{price}</strong>
-          <small> PLN</small>
+          <strong>{price.toFixed(2)}</strong>
+          <small> $</small>
         </p>
         <div className="product__rating">
           {Array(rating)
@@ -34,12 +36,6 @@ function Product({ id, title, image, price, rating }) {
             .map((_, index) => (
               <StarIcon key={index} />
             ))}
-          {/* <p>
-            {" "}
-            <StarIcon />
-            <StarIcon />
-            <StarIcon />
-          </p> */}
         </div>
       </div>
 

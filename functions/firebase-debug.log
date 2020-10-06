@@ -3069,3 +3069,5 @@ Issues? Report them at https://github.com/firebase/firebase-tools/issues and att
 [debug] [2020-09-29T09:48:40.815Z] [worker-api-403f134d-bcdb-4170-9996-62bb928939f1]: exited {"metadata":{"emulator":{"name":"functions"},"message":"[worker-api-403f134d-bcdb-4170-9996-62bb928939f1]: exited"}}
 [debug] [2020-09-29T09:48:40.815Z] [worker-api-403f134d-bcdb-4170-9996-62bb928939f1]: FINISHED {"metadata":{"emulator":{"name":"functions"},"message":"[worker-api-403f134d-bcdb-4170-9996-62bb928939f1]: FINISHED"}}
 [debug] [2020-09-29T09:48:40.815Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-09-30T13:17:40.818Z] Functions emulator received unknown request at path /challenge-f0ac9/us-central1/api/payments/create
+[debug] [2020-09-30T13:19:15.582Z] Received signal SIGHUP 1

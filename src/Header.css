@@ -6,19 +6,40 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
+.header__container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.header__container.extend {
+  flex: 1;
+}
 .header__logo {
   width: 100px;
   object-fit: contain;
-  margin: 18px 20px 0 20px;
+  margin: 10px 20px 0px 20px;
+  border: 1px solid rgba(221, 221, 221, 0);
+  padding: 10px 10px 2px 10px;
+  border-color: none;
+  border-radius: 2px;
+}
+
+.header__logo:hover {
+  border-color: whitesmoke;
 }
 
 .header__search {
   display: flex;
   flex: 1;
   align-items: center;
-  border-radius: 24px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-right: 15px;
 }
 
 .header__searchInput {
@@ -26,27 +47,31 @@
   padding: 10px;
   border: none;
   width: 100%;
+  outline: none;
 }
 
 .header__searchIcon {
   padding: 5px;
   height: 22px !important;
   background-color: #cd9042;
+  cursor: pointer;
 }
 
 .header__optionLineOne {
   font-size: 10px;
+  text-decoration: none;
 }
 
 .header__optionLineTwo {
-  font-size: 13px;
-  font-weight: 800;
+  font-size: 12px;
+  font-weight: 650;
 }
 
 .header__optionBasket {
   display: flex;
   align-items: center;
   color: whitesmoke;
+  padding: 0 0 0 8px;
 }
 
 .header__basketCount {
@@ -59,10 +84,46 @@
   justify-content: space-evenly;
 }
 
+.header__nav a {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(221, 221, 221, 0);
+  padding: 3px 1px 3px 1px;
+  border-radius: 2px;
+}
+
+.header__nav a:hover {
+  border: 1px solid white;
+  padding: 3px 1px 3px 1px;
+}
+
 .header__option {
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
-  margin-right: 10px;
+  justify-content: space-evenly;
+  margin-left: 5px;
+  margin-right: 5px;
   color: white;
+  padding: 0 5px;
+}
+
+@media only screen and (max-width: 650px) {
+  .header {
+    flex-direction: column;
+    height: 150px;
+  }
+  .header__container {
+    width: 100%;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+  }
+  .header__nav {
+    width: 100%;
+    text-align: center;
+  }
+  .header__menuIcon {
+    position: absolute;
+    left: 0;
+  }
 }
