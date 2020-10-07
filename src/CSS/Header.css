@@ -59,6 +59,9 @@
 
 .header__optionLineOne {
   font-size: 10px;
+}
+
+a:link {
   text-decoration: none;
 }
 

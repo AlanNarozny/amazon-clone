@@ -37,6 +37,7 @@
 .product__info {
   width: 100%;
   margin-bottom: 5px;
+  font-size: 10px;
 }
 
 .product__info:hover {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 // import { Carousel, autoplayPlugin } from "react-responsive-carousel";
-import "./Home.css";
+import "../CSS/Home.css";
 import Product from "./Product";
 import Carousel, { autoplayPlugin } from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
