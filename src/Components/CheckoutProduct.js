@@ -82,7 +82,7 @@ function CheckoutProduct({
         {!hideButton && (
           <button onClick={removeFromBasket}>Remove from basket</button>
         )}
-        {!hideSelect && (
+        <div className="checkoutProduct__select">
           <select onChange={changeCountInBasket} id={selectId}>
             <option value="0">0 (Remove)</option>
             <option value="1">1</option>
@@ -96,7 +96,7 @@ function CheckoutProduct({
             <option value="9">9</option>
             <option value="10">10</option>
           </select>
-        )}
+        </div>
       </div>
     </div>
   );

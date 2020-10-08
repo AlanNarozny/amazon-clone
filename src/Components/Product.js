@@ -13,11 +13,11 @@ function Product({ id, title, image, price, rating }) {
     dispatch({
       type: "ADD_TO_BASKET",
       item: {
-        id: id,
-        title: title,
-        image: image,
-        price: price,
-        rating: rating,
+        id,
+        title,
+        image,
+        price,
+        rating,
       },
     });
   };

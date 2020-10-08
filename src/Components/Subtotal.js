@@ -2,25 +2,17 @@ import React from "react";
 import "../CSS/Subtotal.css";
 import CurrencyFormat from "react-currency-format";
 import { useStateValue } from "../StateProvider";
-import { getBasketTotal } from "../reducer";
 import { useHistory } from "react-router-dom";
+import { getBasketTotal } from "../reducer";
 
 /* npm i react-currency-format*/
 
 function Subtotal() {
   const [{ basket }, dispatch] = useStateValue();
-  // gets the browser history for us
-  const history = useHistory();
 
   /*=================================================
-  Calculates total value of the items in basket*/
-  const getBasketTotal = (basket) => {
-    let total = basket.reduce(
-      (total, currentItem) => (total += currentItem.price * currentItem.count),
-      0
-    );
-    return Math.round(total * 100) / 100;
-  };
+  gets the browser history for us*/
+  const history = useHistory();
 
   /*=================================================
   Calculates total items in basket*/
@@ -37,7 +29,7 @@ function Subtotal() {
         renderText={(value) => (
           <>
             <p>
-              Subtotal ({getTotalItems} items) : <strong>{value}</strong>
+              Subtotal ({getTotalItems()} items) : <strong>{value}</strong>
             </p>
             <small className="subtotal__gift">
               <input type="checkbox" /> This order contains a gift
@@ -51,8 +43,11 @@ function Subtotal() {
         prefix={"$"}
       />
 
-      <button onClick={(e) => history.push("/payment")}>
-        Proceed to checkout
+      <button
+        disabled={getTotalItems() == 0}
+        onClick={(e) => history.push("/payment")}
+      >
+        Proceed to Checkout
       </button>
     </div>
   );

@@ -3,6 +3,7 @@ import "../CSS/Order.css";
 import moment from "moment";
 import CheckoutProduct from "./CheckoutProduct";
 import CurrencyFormat from "react-currency-format";
+import HistoryProduct from "./HistoryProduct";
 
 function Order({ order }) {
   return (
@@ -14,13 +15,13 @@ function Order({ order }) {
         <small>{order.id}</small>
       </p>
       {order.data.basket?.map((item) => (
-        <CheckoutProduct
+        <HistoryProduct
           id={item.id}
           title={item.title}
           image={item.image}
           price={item.price}
           rating={item.rating}
-          hideButton
+          count={item.count}
         />
       ))}
 

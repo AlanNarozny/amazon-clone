@@ -16,3 +16,7 @@
   font-weight: 500;
   text-align: right;
 }
+
+.order > CheckoutProduct > checkoutProduct__select {
+  display: none;
+}

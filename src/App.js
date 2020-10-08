@@ -12,6 +12,7 @@ import { auth } from "./firebase";
 import { useStateValue } from "./StateProvider";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import SideMenu from "./Components/SideMenu";
 
 const promise = loadStripe(
   "pk_test_51HWK0jBcF3wNQlhY4El73VuJgXx6e3wpa1pp2Chhr1aicMJNjLsdEeg6619EGSei9QPJIfvtHQCsC4QG3I4t4GmO00q7jZjSd3"
@@ -48,6 +49,7 @@ function App() {
       <div className="app">
         <Switch>
           <Route path="/orders">
+            <SideMenu />
             <Header />
             <Orders />
           </Route>
@@ -55,16 +57,19 @@ function App() {
             <Login />
           </Route>
           <Route path="/checkout">
+            <SideMenu />
             <Header />
             <Checkout />
           </Route>
           <Route path="/payment">
+            <SideMenu />
             <Header />
             <Elements stripe={promise}>
               <Payment />
             </Elements>
           </Route>
           <Route path="/">
+            <SideMenu />
             <Header />
             <Home />
           </Route>

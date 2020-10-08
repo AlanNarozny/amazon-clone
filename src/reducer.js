@@ -1,13 +1,17 @@
-import userEvent from "@testing-library/user-event";
-
 export const initialState = {
   basket: [],
   use: null,
 };
 
-// //Selector
-export const getBasketTotal = (basket) =>
-  basket?.reduce((amount, item) => item.price + amount, 0);
+/*=================================================
+  Calculates total value of the items in basket*/
+export const getBasketTotal = (basket) => {
+  let total = basket.reduce(
+    (total, currentItem) => (total += currentItem.price * currentItem.count),
+    0
+  );
+  return Math.round(total * 100) / 100;
+};
 
 const reducer = (state, action) => {
   let index;
@@ -71,7 +75,9 @@ const reducer = (state, action) => {
       };
 
     default:
-      return state;
+      return {
+        ...state,
+      };
   }
 };
 

@@ -8,6 +8,7 @@ import CurrencyFormat from "react-currency-format";
 import { getBasketTotal } from "../reducer";
 import axios from "../axios";
 import { db } from "../firebase";
+import FlipMove from "react-flip-move";
 
 function Payment() {
   const [{ basket, user }, dispatch] = useStateValue();
@@ -21,6 +22,40 @@ function Payment() {
   const [error, setError] = useState(null);
   const [disabled, setDisabled] = useState(true);
   const [clientSecret, setClientSecret] = useState(true);
+
+  /*=================================================
+  Calculates total items in basket*/
+  const getTotalItems = () => {
+    return basket.reduce(
+      (total, currentItem) => (total += currentItem.count),
+      0
+    );
+  };
+
+  // /*=================================================
+  // Calculates total value of the items in basket*/
+  // const getBasketTotal = (basket) => {
+  //   let total = basket.reduce(
+  //     (total, currentItem) => (total += currentItem.price * currentItem.count),
+  //     0
+  //   );
+  //   return Math.round(total * 100) / 100;
+  // };
+
+  // const itemsInBasket = basket.map((item) => {
+  //   return (
+  //     <div key={item.id}>
+  //       <CheckoutProduct
+  //         id={item.id}
+  //         title={item.title}
+  //         price={item.price}
+  //         image={item.image}
+  //         rating={item.rating}
+  //         count={item.count}
+  //       />
+  //     </div>
+  //   );
+  // });
 
   useEffect(() => {
     // generate the special stripe secret which allows us to charge a customer
@@ -82,11 +117,26 @@ function Payment() {
     setError(event.error ? event.error.message : "");
   };
 
+  const itemsInBasket = basket.map((item) => {
+    return (
+      <div key={item.id}>
+        <CheckoutProduct
+          id={item.id}
+          title={item.title}
+          price={item.price}
+          image={item.image}
+          rating={item.rating}
+          count={item.count}
+        />
+      </div>
+    );
+  });
+
   return (
     <div className="payment">
       <div className="payment__container">
         <h1>
-          Checkout (<Link to="/checkout">{basket?.length} items</Link>)
+          Checkout (<Link to="/checkout">{getTotalItems()} items</Link>)
         </h1>
 
         {/* Payment section - delivery address */}
@@ -107,15 +157,7 @@ function Payment() {
             <h3>Review items and delivery</h3>
           </div>
           <div className="payment__items">
-            {basket.map((item) => (
-              <CheckoutProduct
-                id={item.id}
-                title={item.title}
-                image={item.image}
-                price={item.price}
-                rating={item.rating}
-              />
-            ))}
+            <FlipMove>{itemsInBasket}</FlipMove>
           </div>
         </div>
 

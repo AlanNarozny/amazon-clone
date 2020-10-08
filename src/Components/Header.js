@@ -1,14 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../CSS/Header.css";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../StateProvider";
 import { auth } from "../firebase";
+import $ from "jquery";
 
 function Header() {
   const [{ basket, user }, dispatch] = useStateValue();
 
+  /*=================================================================
+  Some JQuery for the Side Menu interactivity*/
+  useEffect(() => {
+    let menuBackground = $("#menu__canvasBackground");
+    let menuCanvas = $("#menu__canvas");
+    let menu_closeIcon = $("#menu__closeIcon");
+
+    /*======================================================
+    Initializes Menu Icon functionality -> Opens Side Menu
+    ======================================================*/
+    $("#menuIcon").on("click", function () {
+      menuBackground.removeClass("transparent");
+      menuBackground.addClass("opaque");
+
+      menuCanvas.removeClass("translate-left");
+      menuCanvas.addClass("translate-zero");
+
+      menu_closeIcon.removeClass("transparent");
+      menu_closeIcon.addClass("opaque");
+    });
+  });
   /*=================================================
   Signs out the user*/
   const handleAuthentication = () => {
@@ -17,15 +39,35 @@ function Header() {
     }
   };
 
+  /*=================================================
+  Calculates total items in basket*/
+  const getTotalItems = () => {
+    return basket.reduce(
+      (total, currentItem) => (total += currentItem.count),
+      0
+    );
+  };
+
+  /*=================================================
+  Displays the username*/
+  const showUser = () => {
+    if (user) {
+      let index = user.email.indexOf("@");
+      return user.email.substring(0, index);
+    } else return "Guest";
+  };
+
   return (
     <div className="header">
       <div className="header__container">
-        <Link to="/">
-          <img
-            className="header__logo"
-            src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
-          />
-        </Link>
+        <div className="header__logo">
+          <Link to="/">
+            <img
+              className="header__logo__img"
+              src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
+            />
+          </Link>
+        </div>
       </div>
       <div className="header__container extend">
         <div className="header__search">
@@ -64,7 +106,7 @@ function Header() {
             <div className="header__optionBasket">
               <ShoppingCartIcon className="header__basket" />
               <span className="header__optionLineTwo header__basketCount">
-                {basket?.length}
+                {getTotalItems()}
               </span>
             </div>
           </Link>
