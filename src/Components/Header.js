@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useStateValue } from "../StateProvider";
 import { auth } from "../firebase";
 import $ from "jquery";
+import MenuIcon from "@material-ui/icons/Menu";
 
 function Header() {
   const [{ basket, user }, dispatch] = useStateValue();
@@ -60,6 +61,7 @@ function Header() {
   return (
     <div className="header">
       <div className="header__container">
+        <MenuIcon className="header__menuIcon" id="menuIcon" />
         <div className="header__logo">
           <Link to="/">
             <img

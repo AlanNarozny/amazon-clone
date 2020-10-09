@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
-// import { Carousel, autoplayPlugin } from "react-responsive-carousel";
 import "../CSS/Home.css";
 import Product from "./Product";
 import Carousel, { autoplayPlugin } from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
+import Discover from "./Discover";
+// import SliderImage from "./Slider";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 
 function Home() {
   const [productList, setProductList] = useState({});
@@ -29,8 +32,8 @@ function Home() {
     getProducts();
   }, []);
 
-  /*=====================================================
-  Retrieves the Carousel Images List from local JSON file*/
+  // /*=====================================================
+  // Retrieves the Carousel Images List from local JSON file*/
   useEffect(() => {
     const getProducts = async () => {
       await fetch("/img-list.json")
@@ -70,7 +73,7 @@ function Home() {
   if (productList.products) {
     //Creates a copy of the original array, to work with
     let copy = JSON.parse(JSON.stringify(productList.products));
-    let items_per_row = 3;
+    let items_per_row = 4;
     let productsInRow = [];
 
     //Extracts Products from array
@@ -104,7 +107,7 @@ function Home() {
 
     while (copy.length > 0) {
       let products = takeProducts(items_per_row);
-      items_per_row != 1 ? items_per_row-- : (items_per_row = 3);
+      items_per_row != 1 ? items_per_row-- : (items_per_row = 4);
       productsInRow.push(products);
     }
 
@@ -114,9 +117,11 @@ function Home() {
   return (
     <div className="home">
       <div className="home__container">
-        {carousel}
+        <div>{carousel}</div>
 
-        {products}
+        {/* <SliderImage /> */}
+        <div>{products}</div>
+        <Discover />
       </div>
     </div>
   );

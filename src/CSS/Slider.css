@@ -1,0 +1,55 @@
+/* .slides .home__image {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  margin-bottom: -150px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.2));
+}
+
+.slides .slick-prev,
+.slides .slick-next {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+}
+
+.slides {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin-bottom: -100px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.8));
+}
+
+.slides .slick-prev,
+.slides .slick-next {
+  position: absolute;
+  transform: translateY(-50%);
+  top: 30%;
+  z-index: 5;
+}
+
+.slides .slick-prev {
+  left: 2%;
+  color: black;
+  z-index: 5;
+  margin-bottom: -150px;
+}
+
+.slides .slick-next {
+  right: 2%;
+}
+
+.slides .slick-prev:before,
+.slides .slick-next:before {
+  font-size: 80px;
+  line-height: 1;
+  color: black;
+}
+
+.slides .slick-next:before {
+  content: " \203A";
+}
+.slides .slick-prev:before {
+  content: "\2039";
+} */

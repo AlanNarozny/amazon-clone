@@ -21,7 +21,7 @@
 .BrainhubCarousel__container {
   position: relative;
   max-width: 100%;
-  margin-bottom: -150px;
+  margin-bottom: -200px;
 }
 .home__container {
   max-width: 100%;
@@ -33,7 +33,7 @@
   mask-image: linear-gradient(180deg, #000, transparent);
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1000px) {
   .home__row {
     flex-wrap: wrap;
   }
